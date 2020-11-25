@@ -64,7 +64,6 @@ def get_horse_info(test_mode, meet, tbl_type):
         ho_error, ho_msg, ho_info = get_horse.horse_info(meet, ho_info_v, tbl_type, s_mode)
 
         if ho_error:
-            # print('not exist insert info : to_insert_error', ho_error)
             continue
         else:
             sys.stdout.write(
@@ -179,7 +178,7 @@ def simsa_work(test_mode, meet, tbl_type, span):
             elif meet == '3':
                 yymmdd_l_no = str(int(rcdate)) + str(100 + int(trno)) + 'B'
             else:
-                print("뭥미")
+                print("갑자기 meet이 사라진겨??????")
 
             simsa_err, simsa_msg, simsainfo, simsdetail = simsa_page.simsa_get_page(trNo=trno, rcDate=rcdate, meet=meet,
                                                                                     yymmdd_l_no=yymmdd_l_no)
@@ -268,20 +267,18 @@ def chul_work(test_mode, meet_v, tbl_type, span):
             week_int[0] = 'W-FRI'
             week_int[1] = 'W-SAT'
             week_int[2] = 'W-SUN'
-            # week_int[2] = 'W-FRI'
 
         elif meet_v == '2':
             week_int = [0] * 3
             week_int[0] = 'W-FRI'
             week_int[1] = 'W-SAT'
             week_int[2] = 'W-SUN'
-            # week_int[0] = 'W-SUN'
+
         elif meet_v == '3':
             week_int = [0] * 3
             week_int[0] = 'W-FRI'
             week_int[1] = 'W-SAT'
             week_int[2] = 'W-SUN'
-            # week_int[2] = 'W-SAT'
 
         for week_int_i, week_int_v in enumerate(week_int):
             dt_index = pd.date_range(start=span['span_from_to'][0], end=span['span_from_to'][1], freq=week_int_v)
@@ -373,7 +370,6 @@ def chul_work(test_mode, meet_v, tbl_type, span):
 def rst_work(test_mode, meet_v, tbl_type, span):
     ################################################################
     # step 1
-    # 저장된 상세결과 링크페이지에서 각 항목들 DB에 저장하기
     ################################################################
     rst_msg = 'get_result '
     links_list_arranged = []
@@ -431,7 +427,6 @@ def rst_work(test_mode, meet_v, tbl_type, span):
         pass
     ################################################################
     # step 2
-    # 저장된 상세결과 링크페이지에서 각 항목들 DB에 저장하기
     ################################################################
     print(update_list_arranged)
     if len(update_list_arranged) > 0:
@@ -497,7 +492,6 @@ def rst_work(test_mode, meet_v, tbl_type, span):
 def bedang_work(test_mode, meet_v, fromdate, todate, tbl_type):
     ################################################################
     # step 1
-    # 저장된 상세결과 링크페이지에서 각 항목들 DB에 저장하기
     ################################################################
     bedang_msg = 'get_bedang'
 
@@ -541,7 +535,6 @@ def bedang_work(test_mode, meet_v, fromdate, todate, tbl_type):
 
     ################################################################
     # step 2
-    # 저장된 상세결과 링크페이지에서 각 항목들 DB에 저장하기
     ################################################################
     bedang_page = hgp.AboutOddsInPage()
     bedang_insert = OrderedDict()

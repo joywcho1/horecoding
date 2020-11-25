@@ -956,7 +956,7 @@ class ChulPage:
             self.ths = self.trs[0].find_all('th')
 
             if self.ths[0].get_text().find(self.rcDate[:4]) < 0:
-                self.chul_msg = '페이지 데이터 없음'
+                self.chul_msg = 'check page'
                 return self.chul_error, self.chul_msg, self.chul_day, self.chul_detail
 
             else:

@@ -11,11 +11,6 @@ class ConnectMySQL:
         config = ConfigParser()
         config.read('config.ini')
 
-        if os.path.isfile('horecoding/config.ini'):
-            print('OK')
-        else:
-            print('No')
-
         try:
             self.conn = pymysql.connect(host=config.get('DB', 'db_host'),
                                         user=config.get('DB', 'db_user'),
